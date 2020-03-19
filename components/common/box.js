@@ -4,6 +4,7 @@ import {
     color,
     compose,
     flexbox,
+    grid,
     layout,
     shadow,
     space,
@@ -15,6 +16,7 @@ const boxProps = compose(
     border,
     color,
     flexbox,
+    grid,
     layout,
     shadow,
     space,
@@ -24,6 +26,7 @@ const boxProps = compose(
 
 export const Box = styled('div')({}, boxProps);
 export const Flex = styled('div')({ display: 'flex' }, boxProps);
+export const Grid = styled('div')({ display: 'grid' }, boxProps);
 export const Header = styled('header')({}, boxProps);
 export const Main = styled('main')({}, boxProps);
 export const Footer = styled('footer')({}, boxProps);

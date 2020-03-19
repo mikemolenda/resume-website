@@ -1,6 +1,14 @@
 import { ThemeProvider } from 'styled-components'
 import theme from '../styles/theme'
-import { Box, Flex, H1, H2, Section } from '../components/common'
+import {
+    Box,
+    Button,
+    Flex,
+    H1,
+    H2,
+    Section,
+    Text
+} from '../components/common'
 
 const contentWidth = {_: 1, md: '600px', lg: '800px', xl: '1000px'}
 
@@ -21,14 +29,14 @@ const ExperienceCard = props => (
     </Box>
 )
 
-// TODO how to space evenly but also specify number in row? Do I have to use more than one flex?
-// flex-basis @ n%?
 const SkillsCard = props => (
-    <Box bg="yellow"
-         width={{_: 1 / 2, sm: 1 / 3, md: 1 / 4, lg: 1 / 5}}
-         mb={20}
+    <Box
+        bg="yellow"
+        width={{_: 1 / 2, sm: 66, md: 66, lg: 90, xl: 90}}
+        mb={20}
+        mr={{sm: 70, md: 67, lg: 58, xl: 90}}
     >
-        <Box mx="auto">
+        <Box width={{_: 1 / 2, xs: 1 / 2, sm: 1}} mx="auto">
             <Box bg="blue">
                 Icon
             </Box>
@@ -41,19 +49,19 @@ const SkillsCard = props => (
 
 const Index = () => (
     <ThemeProvider theme={theme}>
-        <Section bg="orange" py={80}>
-            <Flex bg="cyan" flexDirection={{_: "column", md: "row"}} width={contentWidth} mx="auto">
+        <Section bg="magenta" py={80}>
+            <Flex bg="lime" flexDirection={{_: "column", md: "row"}} width={contentWidth} mx="auto">
                 <Box bg="blue" width={256} height={256} borderRadius="50%" mx={{_: "auto", md: 0}}>
                     Image
                 </Box>
                 <Box bg="yellow">
                     <H1>Mike Molenda</H1>
                     <H2>// About Me</H2>
-                    Detail
+                    <Text>Detail</Text>
                 </Box>
             </Flex>
         </Section>
-        <Section bg="lime" minHeight={200} pt={10} pb={40}>
+        <Section bg="lime" pt={10} pb={40}>
             <Box bg="magenta" width={contentWidth} mx="auto">
                 <SectionTitle text="// Where I've Worked" />
                 <Flex flexWrap="wrap" justifyContent="center">
@@ -65,10 +73,14 @@ const Index = () => (
                 </Flex>
             </Box>
         </Section>
-        <Section bg="magenta" minHeight={200} pt={10} pb={40}>
+        <Section bg="magenta" pt={10} pb={40}>
             <Box bg="lime" width={contentWidth} mx="auto">
                 <SectionTitle text="// Skills" />
-                <Flex flexWrap="wrap" justifyContent="center">
+                <Flex
+                    flexWrap="wrap"
+                    justifyContent="left"
+                    pl={{sm: 70, md: 67, lg: 58, xl: 90}}
+                >
                     <SkillsCard />
                     <SkillsCard />
                     <SkillsCard />
@@ -82,11 +94,19 @@ const Index = () => (
                 </Flex>
             </Box>
         </Section>
-        <Section bg="cyan" minHeight={200}>
-            resume
+        <Section bg="lime" pt={10} pb={40}>
+            <Box bg="magenta" width={contentWidth} mx="auto">
+                <SectionTitle text="// Resume" />
+                <Button appearance="primary" onClick={() => {}}>
+                    Download My Resume
+                </Button>
+            </Box>
         </Section>
-        <Section bg="yellow" minHeight={200}>
-            connect
+        <Section bg="magenta" pt={10} pb={40}>
+            <Box bg="lime" width={contentWidth} mx="auto">
+                <SectionTitle text="// Connect" />
+                connect
+            </Box>
         </Section>
     </ThemeProvider>
 )
