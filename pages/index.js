@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components'
-import theme from '../styles/theme'
+import theme from '../components/common/theme'
 import {
     Box,
     Button,
@@ -11,6 +11,7 @@ import {
 } from '../components/common'
 
 const contentWidth = {_: 1, md: '600px', lg: '800px', xl: '1000px'}
+
 
 const SectionTitle = props => (
     <Box bg="red" mx="auto">
@@ -57,7 +58,7 @@ const Index = () => (
                 <Box bg="yellow">
                     <H1>Mike Molenda</H1>
                     <H2>// About Me</H2>
-                    <Text>Detail</Text>
+                    <Text>{JSON.stringify(theme)}</Text>
                 </Box>
             </Flex>
         </Section>
@@ -97,9 +98,12 @@ const Index = () => (
         <Section bg="lime" pt={10} pb={40}>
             <Box bg="magenta" width={contentWidth} mx="auto">
                 <SectionTitle text="// Resume" />
+                {/*
                 <Button appearance="primary" onClick={() => {}}>
                     Download My Resume
                 </Button>
+                */}
+
             </Box>
         </Section>
         <Section bg="magenta" pt={10} pb={40}>
