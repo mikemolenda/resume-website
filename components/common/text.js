@@ -45,8 +45,8 @@ const fontSizeVariants = {
 
 export const Text = styled(Box)`
     ${props => css`
-        color: ${props.color},
-        text-align: ${props.textAlign || 'left'}
+        color: ${props.color};
+        text-align: ${props.textAlign || 'left'};
     `}
     ${fontWeight}
     ${variant(fontSizeVariants)}
