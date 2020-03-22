@@ -11,46 +11,12 @@ import {
     Section,
     Text
 } from '../components/common';
+import { ExperienceCard } from '../components/experience-card';
+import { SkillsCard } from '../components/skills-card.js';
+import { SectionTitle } from '../components/section-title.js';
 import { loremIpsum } from 'lorem-ipsum';
 
 const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
-
-const SectionTitle = props => (
-    <Box bg="red" mx="auto">
-        <H2 textAlign="center">{props.text}</H2>
-    </Box>
-);
-
-const ExperienceCard = props => (
-    <Box bg="yellow" width={{ _: 1, md: 1 / 2, lg: 1 / 3 }} mb={40}>
-        <ImageBox
-            src={props.icon}
-            fallback={props.fallback}
-            alt={props.alt}
-            width={200}
-            height={200}
-            borderRadius={'25%'}
-            mx="auto"
-        />
-        <Box bg="orange" mt={20} px={40}>
-            <Text>{props.details}</Text>
-        </Box>
-    </Box>
-);
-
-const SkillsCard = props => (
-    <Box
-        bg="yellow"
-        width={{ _: 1 / 2, sm: 66, md: 66, lg: 90, xl: 90 }}
-        mb={20}
-        mr={{ sm: 70, md: 67, lg: 58, xl: 90 }}
-    >
-        <Box width={{ _: 1 / 2, xs: 1 / 2, sm: 1 }} mx="auto">
-            <Box bg="blue">Icon</Box>
-            <Box bg="orange">Details (hidden)</Box>
-        </Box>
-    </Box>
-);
 
 const Index = () => (
     <ThemeProvider theme={theme}>
