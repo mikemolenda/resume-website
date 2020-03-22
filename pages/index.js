@@ -52,7 +52,7 @@ const Index = () => (
     <ThemeProvider theme={theme}>
         <Section bg="magenta" py={80}>
             <Flex bg="lime" flexDirection={{_: "column", md: "row"}} width={contentWidth} mx="auto">
-                <Box bg="blue" width={256} height={256} borderRadius="50%" mx={{_: "auto", md: 0}}>
+                <Box bg="blue" height={256} minWidth={256} borderRadius="50%" mx={{_: "auto", md: 0}}>
                     Image
                 </Box>
                 <Box bg="yellow">
