@@ -11,6 +11,11 @@ export {
     OL,
     Nav
 } from './box.js';
+
+export { Button } from './button.js';
+
+export { Image, ImageBox } from './image.js';
+
 export {
     Text,
     H1,
@@ -25,4 +30,4 @@ export {
     Span,
     TextFlex
 } from './text.js';
-export { Button } from './button.js';
+

@@ -1,27 +1,44 @@
 import { ThemeProvider } from 'styled-components';
 import theme from '../components/common/theme';
-import { Box, Button, Flex, H1, H2, Section, Text } from '../components/common';
+import {
+    Box,
+    Button,
+    Flex,
+    H1,
+    H2,
+    Image,
+    ImageBox,
+    Section,
+    Text
+} from '../components/common';
+import { loremIpsum } from 'lorem-ipsum';
 
 const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
 
-const SectionTitle = (props) => (
+const SectionTitle = props => (
     <Box bg="red" mx="auto">
         <H2 textAlign="center">{props.text}</H2>
     </Box>
 );
 
-const ExperienceCard = (props) => (
+const ExperienceCard = props => (
     <Box bg="yellow" width={{ _: 1, md: 1 / 2, lg: 1 / 3 }} mb={40}>
-        <Box bg="blue" width={160} height={160} borderRadius={'25%'} mx="auto">
-            Image
-        </Box>
-        <Box bg="orange" mt={20}>
-            Details
+        <ImageBox
+            src={props.icon}
+            fallback={props.fallback}
+            alt={props.alt}
+            width={200}
+            height={200}
+            borderRadius={'25%'}
+            mx="auto"
+        />
+        <Box bg="orange" mt={20} px={40}>
+            <Text>{props.details}</Text>
         </Box>
     </Box>
 );
 
-const SkillsCard = (props) => (
+const SkillsCard = props => (
     <Box
         bg="yellow"
         width={{ _: 1 / 2, sm: 66, md: 66, lg: 90, xl: 90 }}
@@ -56,7 +73,7 @@ const Index = () => (
                 <Box bg="yellow">
                     <H1>Mike Molenda</H1>
                     <H2>// About Me</H2>
-                    <Text>{JSON.stringify(theme)}</Text>
+                    <Text>{loremIpsum({ count: 1, units: 'paragraphs' })}</Text>
                 </Box>
             </Flex>
         </Section>
@@ -64,11 +81,18 @@ const Index = () => (
             <Box bg="magenta" width={contentWidth} mx="auto">
                 <SectionTitle text="// Where I've Worked" />
                 <Flex flexWrap="wrap" justifyContent="center">
-                    <ExperienceCard />
-                    <ExperienceCard />
-                    <ExperienceCard />
-                    <ExperienceCard />
-                    <ExperienceCard />
+                    <ExperienceCard
+                        icon="/images/exp-icon-nw-flat.svg"
+                        details={loremIpsum({ count: 1, units: 'paragraphs' })}
+                    />
+                    <ExperienceCard
+                        icon="/images/exp-icon-cna-flat.svg"
+                        details={loremIpsum({ count: 1, units: 'paragraphs' })}
+                    />
+                    <ExperienceCard
+                        icon="/images/exp-icon-rm-flat.svg"
+                        details={loremIpsum({ count: 1, units: 'paragraphs' })}
+                    />
                 </Flex>
             </Box>
         </Section>
@@ -96,11 +120,9 @@ const Index = () => (
         <Section bg="lime" pt={10} pb={40}>
             <Box bg="magenta" width={contentWidth} mx="auto">
                 <SectionTitle text="// Resume" />
-                {/*
-                <Button appearance="primary" onClick={() => {}}>
+                <Button appearance="primary" fullWidth onClick={() => {}}>
                     Download My Resume
                 </Button>
-                */}
             </Box>
         </Section>
         <Section bg="magenta" pt={10} pb={40}>

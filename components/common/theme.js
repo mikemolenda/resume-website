@@ -17,7 +17,17 @@ const breakpoints = {
 
 const buttonStyles = {
     primary: {
-        color: 'red'
+        normal: {
+            backgroundColor: 'green',
+            border: '1px solid',
+            borderColor: 'white',
+            color: 'white'
+        },
+        hover: {
+            backgroundColor: 'yellow',
+            borderColor: 'black',
+            color: 'black'
+        }
     }
 };
 
