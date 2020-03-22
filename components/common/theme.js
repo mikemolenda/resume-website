@@ -9,9 +9,11 @@ const breakpoints = {
     sm: '480px',
     md: '768px',
     lg: '960px',
-    xl: '1200px'
+    xl: '1200px',
+    map() {
+        return [this.xs, this.sm, this.md, this.lg, this.xl].map;
+    }
 };
-// const breakpoints = Object.entries(breakpoint).map(([k, v]) => v);
 
 const buttonStyles = {
     primary: {

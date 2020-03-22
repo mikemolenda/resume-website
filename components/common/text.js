@@ -49,7 +49,7 @@ export const Text = styled(Box)`
         text-align: ${props.textAlign || 'left'}
     `}
     ${fontWeight}
-    // ${variant(fontSizeVariants)}
+    ${variant(fontSizeVariants)}
 `;
 Text.displayName = 'Text';
 
