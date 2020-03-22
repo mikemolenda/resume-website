@@ -22,45 +22,44 @@ const boxProps = compose(
     space,
     typography,
     position
-)
+);
 
-export const Box = styled.div(boxProps)
-Box.displayName = 'Box'
+export const Box = styled.div(boxProps);
+Box.displayName = 'Box';
 
 export const Flex = styled(Box)`
-    display: flex
-`
-Flex.displayName = 'Flex'
+    display: flex;
+`;
+Flex.displayName = 'Flex';
 
 export const Grid = styled(Box)`
-    display: grid
-`
-Grid.displayName = 'Grid'
+    display: grid;
+`;
+Grid.displayName = 'Grid';
 
-export const Header = Box.withComponent('header')
-Header.displayName = 'Header'
+export const Header = Box.withComponent('header');
+Header.displayName = 'Header';
 
-export const Main = Box.withComponent('main')
-Main.displayName = 'Main'
+export const Main = Box.withComponent('main');
+Main.displayName = 'Main';
 
-export const Footer = Box.withComponent('footer')
-Footer.displayName = 'Footer'
+export const Footer = Box.withComponent('footer');
+Footer.displayName = 'Footer';
 
-export const Section = Box.withComponent('section')
-Section.displayName = 'Section'
+export const Section = Box.withComponent('section');
+Section.displayName = 'Section';
 
-export const Article = Box.withComponent('article')
-Article.displayName = 'Article'
+export const Article = Box.withComponent('article');
+Article.displayName = 'Article';
 
-export const Aside = Box.withComponent('aside')
-Aside.displayName = 'Aside'
+export const Aside = Box.withComponent('aside');
+Aside.displayName = 'Aside';
 
-export const UL = Box.withComponent('ul')
-UL.displayName = 'UL'
+export const UL = Box.withComponent('ul');
+UL.displayName = 'UL';
 
-export const OL = Box.withComponent('ol')
-OL.displayName = 'OL'
+export const OL = Box.withComponent('ol');
+OL.displayName = 'OL';
 
-export const Nav = Box.withComponent('nav')
-Nav.displayName = 'Nav'
-
+export const Nav = Box.withComponent('nav');
+Nav.displayName = 'Nav';

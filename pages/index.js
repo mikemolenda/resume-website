@@ -1,26 +1,17 @@
-import { ThemeProvider } from 'styled-components'
-import theme from '../components/common/theme'
-import {
-    Box,
-    Button,
-    Flex,
-    H1,
-    H2,
-    Section,
-    Text
-} from '../components/common'
+import { ThemeProvider } from 'styled-components';
+import theme from '../components/common/theme';
+import { Box, Button, Flex, H1, H2, Section, Text } from '../components/common';
 
-const contentWidth = {_: 1, md: '600px', lg: '800px', xl: '1000px'}
+const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
 
-
-const SectionTitle = props => (
+const SectionTitle = (props) => (
     <Box bg="red" mx="auto">
         <H2 textAlign="center">{props.text}</H2>
     </Box>
-)
+);
 
-const ExperienceCard = props => (
-    <Box bg="yellow" width={{_: 1, md: 1 / 2, lg: 1 / 3}} mb={40}>
+const ExperienceCard = (props) => (
+    <Box bg="yellow" width={{ _: 1, md: 1 / 2, lg: 1 / 3 }} mb={40}>
         <Box bg="blue" width={160} height={160} borderRadius={'25%'} mx="auto">
             Image
         </Box>
@@ -28,31 +19,38 @@ const ExperienceCard = props => (
             Details
         </Box>
     </Box>
-)
+);
 
-const SkillsCard = props => (
+const SkillsCard = (props) => (
     <Box
         bg="yellow"
-        width={{_: 1 / 2, sm: 66, md: 66, lg: 90, xl: 90}}
+        width={{ _: 1 / 2, sm: 66, md: 66, lg: 90, xl: 90 }}
         mb={20}
-        mr={{sm: 70, md: 67, lg: 58, xl: 90}}
+        mr={{ sm: 70, md: 67, lg: 58, xl: 90 }}
     >
-        <Box width={{_: 1 / 2, xs: 1 / 2, sm: 1}} mx="auto">
-            <Box bg="blue">
-                Icon
-            </Box>
-            <Box bg="orange">
-                Details (hidden)
-            </Box>
+        <Box width={{ _: 1 / 2, xs: 1 / 2, sm: 1 }} mx="auto">
+            <Box bg="blue">Icon</Box>
+            <Box bg="orange">Details (hidden)</Box>
         </Box>
     </Box>
-)
+);
 
 const Index = () => (
     <ThemeProvider theme={theme}>
         <Section bg="magenta" py={80}>
-            <Flex bg="lime" flexDirection={{_: "column", md: "row"}} width={contentWidth} mx="auto">
-                <Box bg="blue" height={256} minWidth={256} borderRadius="50%" mx={{_: "auto", md: 0}}>
+            <Flex
+                bg="lime"
+                flexDirection={{ _: 'column', md: 'row' }}
+                width={contentWidth}
+                mx="auto"
+            >
+                <Box
+                    bg="blue"
+                    height={256}
+                    minWidth={256}
+                    borderRadius="50%"
+                    mx={{ _: 'auto', md: 0 }}
+                >
                     Image
                 </Box>
                 <Box bg="yellow">
@@ -80,7 +78,7 @@ const Index = () => (
                 <Flex
                     flexWrap="wrap"
                     justifyContent="left"
-                    pl={{sm: 70, md: 67, lg: 58, xl: 90}}
+                    pl={{ sm: 70, md: 67, lg: 58, xl: 90 }}
                 >
                     <SkillsCard />
                     <SkillsCard />
@@ -103,7 +101,6 @@ const Index = () => (
                     Download My Resume
                 </Button>
                 */}
-
             </Box>
         </Section>
         <Section bg="magenta" pt={10} pb={40}>
@@ -113,6 +110,6 @@ const Index = () => (
             </Box>
         </Section>
     </ThemeProvider>
-)
+);
 
-export default Index
+export default Index;

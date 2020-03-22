@@ -1,5 +1,3 @@
-import 'normalize.css/normalize.css'
+import 'normalize.css/normalize.css';
 
-export default ({ Component, pageProps }) => (
-    <Component {...pageProps} />
-)
+export default ({ Component, pageProps }) => <Component {...pageProps} />;
