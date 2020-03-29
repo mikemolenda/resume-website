@@ -1,4 +1,4 @@
-import { Box, ImageBox, Text } from '../components/common';
+import { Box, ImageBox, Text } from '../common';
 
 export const ExperienceCard = props => (
     <Box bg="yellow" width={{ _: 1, md: 1 / 2, lg: 1 / 3 }} mb={40}>

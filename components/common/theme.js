@@ -4,6 +4,8 @@ const colors = {
     red: '#f00'
 };
 
+const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
+
 const breakpoints = {
     xs: '320px',
     sm: '480px',
@@ -41,6 +43,7 @@ const theme = {
     breakpoints,
     buttonStyles,
     colors,
+    contentWidth,
     fontWeights
 };
 

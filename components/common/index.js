@@ -10,11 +10,11 @@ export {
     UL,
     OL,
     Nav
-} from './box.js';
+} from './box';
 
-export { Button } from './button.js';
+export { Button } from './button';
 
-export { Image, ImageBox } from './image.js';
+export { Image, ImageBox } from './image';
 
 export {
     Text,
@@ -31,3 +31,4 @@ export {
     TextFlex
 } from './text.js';
 
+export { SectionTitle } from './section-title'

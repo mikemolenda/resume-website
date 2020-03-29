@@ -1,4 +1,5 @@
-import { Box, H2 } from '../components/common';
+import { Box } from './box';
+import { H2 } from './text';
 
 export const SectionTitle = props => (
     <Box bg="red" mx="auto">

@@ -1,4 +1,4 @@
-import { Box } from '../components/common';
+import { Box } from '../common';
 
 export const SkillsCard = props => (
     <Box
