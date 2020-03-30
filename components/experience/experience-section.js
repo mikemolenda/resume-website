@@ -3,7 +3,7 @@ import { Box, Flex, Section, SectionTitle } from '../common';
 import theme from '../common/theme';
 import { ExperienceCard } from './experience-card';
 
-export const ExperienceSection = () => (
+export const ExperienceSection = props => (
     <Section bg="lime" pt={10} pb={40}>
         <Box bg="magenta" width={theme.contentWidth} mx="auto">
             <SectionTitle text="// Where I've Worked" />
@@ -20,6 +20,7 @@ export const ExperienceSection = () => (
                     icon="/images/exp-icon-rm-flat.svg"
                     details={loremIpsum({ count: 1, units: 'paragraphs' })}
                 />
+                <p>{JSON.stringify(props)}</p>
             </Flex>
         </Box>
     </Section>
