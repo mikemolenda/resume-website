@@ -12,12 +12,11 @@ class ExperienceService {
         this.locationPath = apiConfig.locationPath;
 
         this.processRecords = this.processRecords.bind(this);
-        this.getExperienceCategory = this.getExperienceCategory.bind(this);
-        this.getExperienceDetail = this.getExperienceDetail.bind(this);
+        this.getExperienceCategories = this.getExperienceCategories.bind(this);
+        this.getExperienceDetails = this.getExperienceDetails.bind(this);
         this.getLocation = this.getLocation.bind(this);
     }
 
-    // TODO api util get(id):Object and getAll():Object[]
     async get() {
         const data = await getAll(this.experiencePath, 'visible');
         const experience = Promise.all(data.map(this.processRecords));
@@ -37,11 +36,12 @@ class ExperienceService {
 
         const experienceCategoriesData =
             experienceCategories &&
-            Promise.all(experienceCategories.map(this.getExperienceCategory));
+            this.getExperienceCategories(experienceCategories);
 
         const experienceDetailsData =
-            experienceDetails &&
-            Promise.all(experienceDetails.map(this.getExperienceDetail));
+            (experienceDetails &&
+                this.getExperienceDetails(experienceDetails)) ||
+            [];
 
         const locationData = this.getLocation(location[0]);
 
@@ -58,26 +58,52 @@ class ExperienceService {
         return records;
     }
 
-    async getExperienceCategory(id) {
-        const data = await get(this.experienceCategoryPath, id);
-        return data.fields.category;
+    async getExperienceCategories(ids) {
+        const experienceCategories = [];
+
+        ids.forEach(async id => {
+            const data = await get(this.experienceCategoryPath, id);
+            experienceCategories.push(data.fields.category);
+        });
+
+        return experienceCategories;
     }
 
-    async getExperienceDetail(id) {
-        const data = await get(this.experienceDetailPath, id);
-        const { summary, displayStyle, priority, text, visible } = data.fields;
-        const detail = { displayStyle: displayStyle[0], priority, text };
+    async getExperienceDetails(ids) {
+        const experienceDetails = [];
 
-        if (visible == 1) {
-            return detail;
-        }
+        ids.forEach(async id => {
+            const data = await get(this.experienceDetailPath, id);
+            if (data.fields.visible === '1') {
+                const details = {};
+                Object.keys(data.fields).forEach(it => {
+                    if (
+                        ['id', 'employer', 'visible', 'displayStyle'].includes(
+                            it
+                        )
+                    )
+                        return;
+                    if (typeof data.fields[it] != undefined) {
+                        details[it] = data.fields[it];
+                    }
+                });
+                experienceDetails.push(details);
+            }
+        });
+
+        return experienceDetails;
     }
 
     // TODO move to location service
     async getLocation(id) {
         const data = await get(this.locationPath, id);
-        const { name, address1, address2, city, state, zip } = data.fields;
-        const location = { name, address1, address2, city, state, zip };
+        const location = {};
+        Object.keys(data.fields).forEach(it => {
+            if (it === 'experience') return;
+            if (typeof data.fields[it] != undefined) {
+                location[it] = data.fields[it];
+            }
+        });
         return location;
     }
 }

@@ -24,6 +24,7 @@ Index.getInitialProps = async () => {
     console.log('Getting experience');
     const experience = await experienceService.get();
     console.log(experience);
+    console.log(experience[0].experienceDetails.sort((a,b)=> a.priority - b.priority).map(it => it.text))
     return { experience: 'foo' };
 };
 
