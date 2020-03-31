@@ -1,5 +1,6 @@
-import apiConfig from '../apiConfig.json';
 import fetch from 'isomorphic-unfetch';
+import apiConfig from '../apiConfig.json';
+import { get, getAll } from '../utils/api.util';
 
 class ExperienceService {
     constructor() {
@@ -11,23 +12,15 @@ class ExperienceService {
         this.locationPath = apiConfig.locationPath;
 
         this.processRecords = this.processRecords.bind(this);
-        this.getExperienceCategories = this.getExperienceCategories.bind(this);
-        this.getExperienceDetails = this.getExperienceDetails.bind(this);
+        this.getExperienceCategory = this.getExperienceCategory.bind(this);
+        this.getExperienceDetail = this.getExperienceDetail.bind(this);
         this.getLocation = this.getLocation.bind(this);
     }
 
     // TODO api util get(id):Object and getAll():Object[]
     async get() {
-        const experienceUrl = `${this.baseUrl}${this.experiencePath}?view=visible&api_key=${this.apiKey}`;
-        const res = await fetch(experienceUrl);
-        const data = await res.json();
-
-        if (data.error) {
-            console.error(`Error reading experience data: ${JSON.stringify(data.error)}`);
-            return [];
-        }
-
-        const experience = Promise.all(data.records.map(this.processRecords));
+        const data = await getAll(this.experiencePath, 'visible');
+        const experience = Promise.all(data.map(this.processRecords));
         return experience;
     }
 
@@ -42,40 +35,50 @@ class ExperienceService {
             experienceDetails
         } = record.fields;
 
-        const experienceCategoriesData = [];
-        const experienceDetailsData = [];
+        const experienceCategoriesData =
+            experienceCategories &&
+            Promise.all(experienceCategories.map(this.getExperienceCategory));
+
+        const experienceDetailsData =
+            experienceDetails &&
+            Promise.all(experienceDetails.map(this.getExperienceDetail));
+
+        const locationData = this.getLocation(location[0]);
 
         const records = {
             company,
             title,
             startDate,
             endDate,
-            location: await this.getLocation(location[0]),
-            experienceCategories: experienceCategoriesData,
-            experienceDetails: experienceDetailsData
+            location: await locationData,
+            experienceCategories: await experienceCategoriesData,
+            experienceDetails: await experienceDetailsData
         };
 
         return records;
     }
 
-    async getExperienceCategories() {}
+    async getExperienceCategory(id) {
+        const data = await get(this.experienceCategoryPath, id);
+        return data.fields.category;
+    }
 
-    async getExperienceDetails() {}
+    async getExperienceDetail(id) {
+        const data = await get(this.experienceDetailPath, id);
+        const { summary, displayStyle, priority, text, visible } = data.fields;
+        const detail = { displayStyle: displayStyle[0], priority, text };
+
+        if (visible == 1) {
+            return detail;
+        }
+    }
 
     // TODO move to location service
     async getLocation(id) {
-        const locationUrl = `${this.baseUrl}${this.locationPath}/${id}?api_key=${this.apiKey}`;
-        const res = await fetch(locationUrl);
-        const data = await res.json();
-
-        if (data.error) {
-            console.error(`Error reading location data: ${JSON.stringify(data.error)}`);
-            return [];
-        }
-
+        const data = await get(this.locationPath, id);
         const { name, address1, address2, city, state, zip } = data.fields;
         const location = { name, address1, address2, city, state, zip };
-        return(location);
+        return location;
     }
 }
 
