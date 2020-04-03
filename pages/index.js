@@ -13,7 +13,7 @@ const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
 const Index = props => (
     <ThemeProvider theme={theme}>
         <AboutSection />
-        <ExperienceSection />
+        <ExperienceSection experience={props.experience} />
         <SkillsSection />
         <ResumeSection />
         <ConnectSection />
@@ -21,11 +21,9 @@ const Index = props => (
 );
 
 Index.getInitialProps = async () => {
-    console.log('Getting experience');
     const experience = await experienceService.get();
     console.log(experience);
-    console.log(experience[0].experienceDetails.sort((a,b)=> a.priority - b.priority).map(it => it.text))
-    return { experience: 'foo' };
+    return { experience };
 };
 
 export default Index;
