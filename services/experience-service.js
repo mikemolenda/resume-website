@@ -9,7 +9,15 @@ class ExperienceService {
         const experience = records.map(async it => {
             const experienceDetails = await this.getLinkedDetails(it.company);
             const location = await this.getLinkedLocation(it.company);
-            return { ...it, location, experienceDetails };
+            return {
+                company: it.company,
+                title: it.title,
+                startDate: it.startDate,
+                endDate: it.endDate,
+                location,
+                details: experienceDetails,
+                logo: it.logo[0].url
+            };
         });
 
         return Promise.all(experience);

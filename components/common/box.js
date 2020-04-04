@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+    background,
     border,
     color,
     compose,
@@ -13,6 +14,7 @@ import {
 } from 'styled-system';
 
 const boxProps = compose(
+    background,
     border,
     color,
     flexbox,
@@ -60,6 +62,9 @@ UL.displayName = 'UL';
 
 export const OL = Box.withComponent('ol');
 OL.displayName = 'OL';
+
+export const LI = Box.withComponent('li');
+OL.displayName = 'LI';
 
 export const Nav = Box.withComponent('nav');
 Nav.displayName = 'Nav';

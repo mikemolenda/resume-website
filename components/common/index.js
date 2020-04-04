@@ -9,6 +9,7 @@ export {
     Aside,
     UL,
     OL,
+    LI,
     Nav
 } from './box';
 

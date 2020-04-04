@@ -11,23 +11,9 @@ export const ExperienceSection = props => (
                 {props.experience.map((exp, i) => (
                     <ExperienceCard
                         key={i}
-                        icon="/images/exp-icon-nw-flat.svg"
-                        details={JSON.stringify(exp.experienceDetails)}
+                        {...exp}
                     />
                 ))}
-                <ExperienceCard
-                    icon="/images/exp-icon-nw-flat.svg"
-                    details={loremIpsum({ count: 1, units: 'paragraphs' })}
-                />
-                <ExperienceCard
-                    icon="/images/exp-icon-cna-flat.svg"
-                    details={loremIpsum({ count: 1, units: 'paragraphs' })}
-                />
-                <ExperienceCard
-                    icon="/images/exp-icon-rm-flat.svg"
-                    details={loremIpsum({ count: 1, units: 'paragraphs' })}
-                />
-                <p>{JSON.stringify(props)}</p>
             </Flex>
         </Box>
     </Section>
