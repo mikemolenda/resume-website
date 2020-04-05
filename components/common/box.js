@@ -68,3 +68,9 @@ OL.displayName = 'OL';
 
 export const Nav = Box.withComponent('nav');
 Nav.displayName = 'Nav';
+
+export const ParallaxBG = styled(Box)`
+    background-attachment: fixed;
+`;
+ParallaxBG.displayName = 'ParallaxBG';
+

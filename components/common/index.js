@@ -9,7 +9,8 @@ export {
     Aside,
     UL,
     OL,
-    Nav
+    Nav,
+    ParallaxBG
 } from './box';
 
 export { Button } from './button';
