@@ -3,7 +3,11 @@ import theme from '../common/theme';
 import { loremIpsum } from 'lorem-ipsum';
 
 export const AboutSection = () => (
-    <Section backgroundImage="url('https://source.unsplash.com/1600x900/?aerial')" py={80}>
+    <Section
+        backgroundImage="url('https://source.unsplash.com/1600x900/?aerial')"
+        backgroundSize="100%"
+        py={80}
+    >
         <Flex
             flexDirection={{ _: 'column', md: 'row' }}
             width={theme.contentWidth}
@@ -15,11 +19,12 @@ export const AboutSection = () => (
                 minWidth={256}
                 borderRadius="50%"
                 mx={{ _: 'auto', md: 0 }}
+                boxShadow={theme.shadows.md.light}
             >
             </ImageBox>
-            <Box color="white" px={20}>
+            <Box color="white" px={20} textShadow={theme.shadows.lg.dark}>
                 <H1>Mike Molenda</H1>
-                <H2>// About Me</H2>
+                <H2 fontFamily={theme.fonts.sectionTitle}>// About Me</H2>
                 <Text>{loremIpsum({ count: 1, units: 'paragraphs' })}</Text>
             </Box>
         </Flex>

@@ -57,14 +57,14 @@ Article.displayName = 'Article';
 export const Aside = Box.withComponent('aside');
 Aside.displayName = 'Aside';
 
-export const UL = Box.withComponent('ul');
+export const UL = styled(Box.withComponent('ul'))`
+    list-style: none;
+    padding: 0;
+`;
 UL.displayName = 'UL';
 
 export const OL = Box.withComponent('ol');
 OL.displayName = 'OL';
-
-export const LI = Box.withComponent('li');
-OL.displayName = 'LI';
 
 export const Nav = Box.withComponent('nav');
 Nav.displayName = 'Nav';

@@ -13,7 +13,7 @@ export const ExperienceCard = props => {
     } = props;
 
     return (
-        <Box bg="yellow" width={{ _: 1, md: 1 / 2, lg: 1 / 3 }} mb={40}>
+        <Box width={{ _: 1, md: 1 / 2, lg: 1 / 3 }} mb={40}>
             <ImageBox
                 src={logo}
                 fallback={fallback}
@@ -23,7 +23,7 @@ export const ExperienceCard = props => {
                 borderRadius={'25%'}
                 mx="auto"
             />
-            <Box bg="orange" mt={20} px={40}>
+            <Box mt={20} px={40}>
                 <H2>{company}</H2>
                 <H3>{title}</H3>
                 <UL>

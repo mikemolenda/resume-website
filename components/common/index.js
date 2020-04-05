@@ -9,7 +9,6 @@ export {
     Aside,
     UL,
     OL,
-    LI,
     Nav
 } from './box';
 
@@ -28,6 +27,7 @@ export {
     SubheadingSmall,
     Caption,
     FinePrint,
+    LI,
     Span,
     TextFlex
 } from './text.js';

@@ -4,15 +4,12 @@ import theme from '../common/theme';
 import { ExperienceCard } from './experience-card';
 
 export const ExperienceSection = props => (
-    <Section bg="lime" pt={10} pb={40}>
-        <Box bg="magenta" width={theme.contentWidth} mx="auto">
+    <Section pt={10} pb={40}>
+        <Box width={theme.contentWidth} mx="auto">
             <SectionTitle text="// Where I've Worked" />
             <Flex flexWrap="wrap" justifyContent="center">
                 {props.experience.map((exp, i) => (
-                    <ExperienceCard
-                        key={i}
-                        {...exp}
-                    />
+                    <ExperienceCard key={i} {...exp} />
                 ))}
             </Flex>
         </Box>

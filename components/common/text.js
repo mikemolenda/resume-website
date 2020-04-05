@@ -2,10 +2,15 @@ import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
 import { Box, Flex } from './box';
 
-// Allows overriding the theme font weight
 const fontWeight = ({ fw, theme }) => {
     return {
         fontWeight: fw ? theme.fontWeights[fw] : theme.fontWeights[0]
+    };
+};
+
+const fontFamily = ({ fontFamily, theme }) => {
+    return {
+        fontFamily: fontFamily ? fontFamily : theme.fonts['sans']
     };
 };
 
@@ -47,7 +52,9 @@ export const Text = styled(Box)`
     ${props => css`
         color: ${props.color};
         text-align: ${props.textAlign || 'left'};
+        text-shadow: ${props.textShadow};
     `}
+    ${fontFamily}
     ${fontWeight}
     ${variant(fontSizeVariants)}
 `;
@@ -119,3 +126,7 @@ FinePrint.defaultProps = {
     fs: 'xs'
 };
 FinePrint.displayName = 'FinePrint';
+
+export const LI = Text.withComponent('li');
+LI.displayName = 'LI';
+
