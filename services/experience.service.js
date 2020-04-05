@@ -16,7 +16,7 @@ class ExperienceService {
                 endDate: it.endDate,
                 location,
                 details: experienceDetails,
-                logo: it.logo[0].url
+                logo: it.logo ? it.logo[0].url : ''
             };
         });
 

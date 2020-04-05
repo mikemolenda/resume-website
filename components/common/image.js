@@ -20,7 +20,8 @@ export const ImageBox = ({ src, fallback, ...otherProps }) => {
     return (
         <Box
             backgroundImage={`url('${srcUrl}')`}
-            backgroundSize="100%"
+            backgroundSize="contain"
+            backgroundRepeat="no-repeat"
             onError={() => fallback && setSrcUrl(fallback)}
             {...otherProps}
         />

@@ -1,7 +1,8 @@
 const colors = {
     black: '#000',
     white: '#fff',
-    red: '#f00'
+    red: '#f00',
+    transparent: `rgba(0, 0, 0, 0)`
 };
 
 const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
