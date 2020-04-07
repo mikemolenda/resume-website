@@ -1,3 +1,4 @@
+import moment from 'moment';
 import apiConfig from '../apiConfig.json';
 import { buildFieldsQuery, get, getAll } from '../utils/api.util';
 
@@ -10,10 +11,10 @@ class ExperienceService {
             const experienceDetails = await this.getLinkedDetails(it.company);
             const location = await this.getLinkedLocation(it.company);
             return {
-                company: it.company,
+                company: it.displayName ? it.displayName : it.company,
                 title: it.title,
-                startDate: it.startDate,
-                endDate: it.endDate,
+                startDate: moment(it.startDate).toDate(),
+                endDate: moment(it.endDate).toDate(),
                 location,
                 details: experienceDetails,
                 logo: it.logo ? it.logo[0].url : ''

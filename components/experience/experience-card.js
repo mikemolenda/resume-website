@@ -1,4 +1,4 @@
-import { Box, ImageBox, H2, H3, LI, Text, UL } from '../common';
+import { Box, ImageBox, H3, H4, LI, Text, UL } from '../common';
 
 export const ExperienceCard = props => {
     const {
@@ -24,11 +24,15 @@ export const ExperienceCard = props => {
                 mx="auto"
             />
             <Box mt={20} px={40}>
-                <H2>{company}</H2>
-                <H3>{title}</H3>
-                <UL>
+                <H3 textAlign="center" mt={0} mb="10px">
+                    {company}
+                </H3>
+                <H4 textAlign="center" mt={0} mb="10px" fw="light">
+                    {title}
+                </H4>
+                <UL mb={0}>
                     {details.map((detail, i) => (
-                        <LI key={i}>{detail}</LI>
+                        <LI key={i} mb="20px">{detail}</LI>
                     ))}
                 </UL>
             </Box>

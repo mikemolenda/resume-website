@@ -1,15 +1,12 @@
-import { Box, Button, Section, SectionTitle } from '../common';
-import theme from '../common/theme.js';
+import { Box, Button } from '../common';
+import { SectionLayout } from '../layout';
 
 export const ResumeSection = () => (
-    <Section bg="lime" pt={10} pb={40}>
-        <Box bg="magenta" width={theme.contentWidth} mx="auto">
-            <SectionTitle text="// Resume" />
-            <Button appearance="primary" fullWidth onClick={() => {}}>
-                Download My Resume
-            </Button>
-        </Box>
-    </Section>
+    <SectionLayout title="// Resume">
+        <Button appearance="primary" fullWidth onClick={() => {}}>
+            Download My Resume
+        </Button>
+    </SectionLayout>
 );
 
 ResumeSection.displayName = 'ResumeSection';

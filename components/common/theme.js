@@ -1,11 +1,14 @@
 const colors = {
-    black: '#000',
-    white: '#fff',
-    red: '#f00',
+    trueBlack: `rgba(0, 0, 0, 1)`,
+    black: `rgba(16, 16, 16, 1)`,
+    white: `rgba(255, 255, 255, 1)`,
+    darkGray: `rgba(64, 64, 80, 1)`,
+    medGray: `rgba(128, 128, 160, 1)`,
+    lightGray: `rgba(192, 192, 224, 1)`,
     transparent: `rgba(0, 0, 0, 0)`
 };
 
-const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
+const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1200px' };
 
 const breakpoints = {
     xs: '320px',
@@ -40,6 +43,7 @@ const fonts = {
 };
 
 const fontWeights = {
+    light: 200,
     normal: 400,
     medium: 600,
     bold: 800

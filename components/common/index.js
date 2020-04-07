@@ -33,4 +33,3 @@ export {
     TextFlex
 } from './text.js';
 
-export { SectionTitle } from './section-title'

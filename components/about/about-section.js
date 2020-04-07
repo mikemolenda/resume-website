@@ -42,15 +42,14 @@ export const AboutSection = () => {
                         }
                     />
                     <Box
-                        color="white"
                         pl={40}
                         textShadow={theme.shadows.lg.dark}
                     >
-                        <H1>Mike Molenda</H1>
-                        <H2 fontFamily={theme.fonts.sectionTitle}>
+                        <H1 color="white">Mike Molenda</H1>
+                        <H2 color="white" fontFamily={theme.fonts.sectionTitle}>
                             // About Me
                         </H2>
-                        <Text>
+                        <Text color="white">
                             {loremIpsum({ count: 1, units: 'paragraphs' })}
                         </Text>
                     </Box>

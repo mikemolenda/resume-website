@@ -23,7 +23,7 @@ const Index = props => (
 Index.getInitialProps = async () => {
     const experience = await experienceService.get();
     const skills = await skillService.get();
-    console.log(skills);
+    console.log(experience);
     return { experience, skills };
 };
 

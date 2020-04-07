@@ -3,18 +3,21 @@ import { Box, Caption, ImageBox } from '../common';
 import theme from '../common/theme';
 
 export const SkillsCard = props => {
-    const [size, setSize] = useState(80);
+    const normalSize = 70;
+    const hoverSize = 90;
+
+    const [size, setSize] = useState(normalSize);
     const [showName, setShowName] = useState(false);
 
     const { name, logo } = props;
 
     const setHover = () => {
-        setSize(90);
+        setSize(hoverSize);
         setShowName(true);
     }
 
     const setNormal = () => {
-        setSize(80);
+        setSize(normalSize);
         setShowName(false);
     }
 
