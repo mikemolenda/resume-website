@@ -3,12 +3,9 @@ import { SectionTitle } from '../layout';
 import theme from '../common/theme';
 
 export const ConnectSection = () => (
-    <Section>
-        <Box
-            width={theme.contentWidth}
-            mx="auto"
-        >
-            <SectionTitle text="// Connect" />
+    <Section bg={theme.colors.slateBlue} color={theme.colors.white}>
+        <Box width={theme.contentWidth} mx="auto">
+            <SectionTitle color={theme.colors.white} text="// Connect" />
         </Box>
     </Section>
 );

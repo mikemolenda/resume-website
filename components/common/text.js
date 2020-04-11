@@ -14,11 +14,11 @@ const fontFamily = ({ fontFamily, theme }) => {
     };
 };
 
-const color = ({color, theme}) => {
+const color = ({ color, theme }) => {
     return {
         color: color ? color : theme.colors['black']
-    }
-}
+    };
+};
 
 const fontSizeVariants = {
     prop: 'fs',
@@ -55,13 +55,14 @@ const fontSizeVariants = {
 };
 
 export const Text = styled(Box)`
-    ${props => css`
+    ${(props) => css`
         text-align: ${props.textAlign || 'left'};
         text-shadow: ${props.textShadow};
         margin-top: ${props.m ? props.m : props.my ? props.my : props.mt};
         margin-right: ${props.m ? props.m : props.mx ? props.mx : props.mr};
         margin-bottom: ${props.m ? props.m : props.my ? props.my : props.mb};
         margin-left: ${props.m ? props.m : props.mx ? props.mx : props.ml};
+        hyphens: ${props.hyphens || 'none'};
     `}
     ${color}
     ${fontFamily}
@@ -139,4 +140,3 @@ FinePrint.displayName = 'FinePrint';
 
 export const LI = Text.withComponent('li');
 LI.displayName = 'LI';
-

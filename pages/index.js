@@ -10,7 +10,7 @@ import fetch from 'isomorphic-unfetch';
 
 const contentWidth = { _: 1, md: '600px', lg: '800px', xl: '1000px' };
 
-const Index = props => (
+const Index = (props) => (
     <ThemeProvider theme={theme}>
         <AboutSection />
         <ExperienceSection experience={props.experience} />

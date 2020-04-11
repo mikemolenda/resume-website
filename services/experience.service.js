@@ -6,15 +6,15 @@ class ExperienceService {
     async get() {
         const query = { view: 'visible' };
         const data = await getAll(apiConfig.experiencePath, [], query);
-        const records = await data.map(it => it.fields);
-        const experience = records.map(async it => {
+        const records = await data.map((it) => it.fields);
+        const experience = records.map(async (it) => {
             const experienceDetails = await this.getLinkedDetails(it.company);
             const location = await this.getLinkedLocation(it.company);
             return {
                 company: it.displayName ? it.displayName : it.company,
                 title: it.title,
-                startDate: moment(it.startDate).toDate(),
-                endDate: moment(it.endDate).toDate(),
+                startDate: moment(it.startDate).toObject(),
+                endDate: moment(it.endDate).toObject(),
                 location,
                 details: experienceDetails,
                 logo: it.logo ? it.logo[0].url : ''
@@ -32,7 +32,7 @@ class ExperienceService {
             ...buildFieldsQuery('text')
         };
         const data = await getAll(apiConfig.experienceDetailPath, [], query);
-        return data.map(it => it.fields.text);
+        return data.map((it) => it.fields.text);
     }
 
     async getLinkedLocation(company) {

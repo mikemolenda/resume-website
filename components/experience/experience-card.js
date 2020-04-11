@@ -1,6 +1,7 @@
-import { Box, ImageBox, H3, H4, LI, Text, UL } from '../common';
+import { Box, ImageBox, H3, H4, LI, SubheadingSmall, UL } from '../common';
+import theme from '../common/theme';
 
-export const ExperienceCard = props => {
+export const ExperienceCard = (props) => {
     const {
         company,
         details,
@@ -23,16 +24,33 @@ export const ExperienceCard = props => {
                 borderRadius={'25%'}
                 mx="auto"
             />
-            <Box mt={20} px={40}>
+            <Box mt={40} px={40}>
                 <H3 textAlign="center" mt={0} mb="10px">
                     {company}
                 </H3>
-                <H4 textAlign="center" mt={0} mb="10px" fw="light">
+                <H4
+                    textAlign="center"
+                    mt={0}
+                    mb="10px"
+                    fw={theme.fontWeights.light}
+                >
                     {title}
                 </H4>
+                <SubheadingSmall
+                    textAlign="center"
+                    mt={0}
+                    mb="30px"
+                    fw={theme.fontWeights.ultraLight}
+                    color={theme.colors.medGray}
+                >
+                    {startDate.years} -{' '}
+                    {endDate.years < 9999 ? endDate.years : 'Present'}
+                </SubheadingSmall>
                 <UL mb={0}>
                     {details.map((detail, i) => (
-                        <LI key={i} mb="20px">{detail}</LI>
+                        <LI key={i} mb="20px" hyphens="auto">
+                            {detail}
+                        </LI>
                     ))}
                 </UL>
             </Box>

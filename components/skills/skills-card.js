@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Box, Caption, ImageBox } from '../common';
 import theme from '../common/theme';
 
-export const SkillsCard = props => {
-    const normalSize = 70;
+export const SkillsCard = (props) => {
+    const normalSize = 75;
     const hoverSize = 90;
 
     const [size, setSize] = useState(normalSize);
@@ -14,21 +14,22 @@ export const SkillsCard = props => {
     const setHover = () => {
         setSize(hoverSize);
         setShowName(true);
-    }
+    };
 
     const setNormal = () => {
         setSize(normalSize);
         setShowName(false);
-    }
+    };
 
     return (
         <Box
-            width={{ _: 1 / 2, sm: 66, md: 66, lg: 90, xl: 90 }}
+            width={90}
             mb={20}
-            mr={{ sm: 70, md: 67, lg: 58, xl: 90 }}
+            ml={{ xs: 'auto', sm: 0 }}
+            mr={{ xs: 'auto', sm: 32, md: 42, lg: 58, xl: 60 }}
         >
             <Box
-                width={{ _: 1 / 2, xs: 1 / 2, sm: 1 }}
+                width={1}
                 mx="auto"
                 onMouseOver={() => setHover()}
                 onMouseOut={() => setNormal()}
@@ -43,7 +44,9 @@ export const SkillsCard = props => {
                 />
                 <Caption
                     textAlign="center"
-                    color={showName ? theme.colors.black : theme.colors.transparent}
+                    color={
+                        showName ? theme.colors.black : theme.colors.transparent
+                    }
                 >
                     {name}
                 </Caption>

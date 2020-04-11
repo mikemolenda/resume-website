@@ -5,6 +5,10 @@ const colors = {
     darkGray: `rgba(64, 64, 80, 1)`,
     medGray: `rgba(128, 128, 160, 1)`,
     lightGray: `rgba(192, 192, 224, 1)`,
+    slateGreen: `rgba(40, 70, 70, 1)`,
+    slateBlue: `rgba(0, 45, 62, 1)`,
+    darkBlue: `rgba(0, 45, 102, 1)`,
+    gold: `rgba(255, 205, 0, 1)`,
     transparent: `rgba(0, 0, 0, 0)`
 };
 
@@ -24,15 +28,13 @@ const breakpoints = {
 const buttonStyles = {
     primary: {
         normal: {
-            backgroundColor: 'green',
-            border: '1px solid',
-            borderColor: 'white',
-            color: 'white'
+            backgroundColor: colors.darkBlue,
+            color: colors.white,
+            border: 'none'
         },
         hover: {
-            backgroundColor: 'yellow',
-            borderColor: 'black',
-            color: 'black'
+            backgroundColor: colors.gold,
+            color: colors.black
         }
     }
 };
@@ -43,6 +45,7 @@ const fonts = {
 };
 
 const fontWeights = {
+    ultraLight: 100,
     light: 200,
     normal: 400,
     medium: 600,
@@ -53,13 +56,13 @@ const shadowColor = {
     light: `rgba(0, 0, 0, 0.25)`,
     med: `rgba(0, 0, 0, 0.5)`,
     dark: `rgba(0, 0, 0, 0.75)`
-}
+};
 
 const shadowSize = {
     sm: `1px 1px 5px`,
     md: `3px 3px 8px`,
     lg: `5px 5px 10px`
-}
+};
 
 const shadows = {
     sm: {

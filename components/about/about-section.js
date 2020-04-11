@@ -13,7 +13,9 @@ import theme from '../common/theme';
 import { loremIpsum } from 'lorem-ipsum';
 
 export const AboutSection = () => {
-    const [profilePic, setProfilePic] = useState('https://source.unsplash.com/256x256/?cat');
+    const [profilePic, setProfilePic] = useState(
+        'https://source.unsplash.com/256x256/?cat'
+    );
 
     return (
         <Section bg="black">
@@ -41,10 +43,7 @@ export const AboutSection = () => {
                             )
                         }
                     />
-                    <Box
-                        pl={40}
-                        textShadow={theme.shadows.lg.dark}
-                    >
+                    <Box pl={40} textShadow={theme.shadows.lg.dark}>
                         <H1 color="white">Mike Molenda</H1>
                         <H2 color="white" fontFamily={theme.fonts.sectionTitle}>
                             // About Me
