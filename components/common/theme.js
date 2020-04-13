@@ -1,14 +1,16 @@
 const colors = {
     trueBlack: `rgba(0, 0, 0, 1)`,
-    black: `rgba(16, 16, 16, 1)`,
-    white: `rgba(255, 255, 255, 1)`,
+    black: `rgba(24, 24, 24, 1)`,
+    trueWhite: `rgba(255, 255, 255, 1)`,
+    white: `rgba(255, 255, 247, 1)`,
     darkGray: `rgba(64, 64, 80, 1)`,
     medGray: `rgba(128, 128, 160, 1)`,
     lightGray: `rgba(192, 192, 224, 1)`,
-    slateGreen: `rgba(40, 70, 70, 1)`,
-    slateBlue: `rgba(0, 45, 62, 1)`,
-    darkBlue: `rgba(0, 45, 102, 1)`,
-    gold: `rgba(255, 205, 0, 1)`,
+    theme1: `rgba(39, 76, 80, 1)`,
+    theme2: `rgba(69, 181, 169, 1)`,
+    theme3: `rgba(255, 203, 96, 1)`,
+    theme4: `rgba(185, 125, 100, 1)`,
+    theme5: `rgba(205, 44, 87, 1)`,
     transparent: `rgba(0, 0, 0, 0)`
 };
 
@@ -28,12 +30,12 @@ const breakpoints = {
 const buttonStyles = {
     primary: {
         normal: {
-            backgroundColor: colors.darkBlue,
-            color: colors.white,
+            backgroundColor: colors.theme2,
+            color: colors.trueWhite,
             border: 'none'
         },
         hover: {
-            backgroundColor: colors.gold,
+            backgroundColor: colors.theme3,
             color: colors.black
         }
     }
