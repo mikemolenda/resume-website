@@ -11,6 +11,7 @@
   "author": "Mike Molenda",
   "license": "ISC",
   "dependencies": {
+    "googleapis": "^48.0.0",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
     "next": "^9.3.0",
@@ -21,8 +22,11 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
+    "@types/node": "^13.11.1",
+    "@types/react": "^16.9.34",
     "babel-plugin-styled-components": "^1.10.7",
     "lorem-ipsum": "^2.0.3",
-    "prettier": "^2.0.1"
+    "prettier": "^2.0.1",
+    "typescript": "^3.8.3"
   }
 }

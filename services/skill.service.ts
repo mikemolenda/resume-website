@@ -1,12 +1,15 @@
 import apiConfig from '../apiConfig.json';
 import { getAll } from '../utils/api.util';
+import { AirTableResponseRecord, Skill, SkillResponseData } from '../typings';
 
 class SkillService {
-    async get() {
+    public async get(): Promise<Array<Skill>> {
         const query = { view: 'visibleSort' };
         const data = await getAll(apiConfig.skillPath, [], query);
-        const records = await data.map(it => it.fields);
-        const skills = records.map(async it => {
+        const records = await data.map(
+            (it: AirTableResponseRecord<SkillResponseData>) => it.fields
+        );
+        const skills = records.map(async (it: SkillResponseData) => {
             return {
                 name: it.name,
                 logo: it.logo ? it.logo[0].url : ''

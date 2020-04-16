@@ -1,21 +1,30 @@
 import moment from 'moment';
 import apiConfig from '../apiConfig.json';
 import { buildFieldsQuery, get, getAll } from '../utils/api.util';
+import {
+    AirTableResponseRecord,
+    Experience,
+    ExperienceResponseData,
+    ExperienceDetail,
+    ExperienceDetailResponseData
+} from '../typings';
 
 class ExperienceService {
-    async get() {
+    public async get(): Promise<Array<Experience>> {
         const query = { view: 'visible' };
         const data = await getAll(apiConfig.experiencePath, [], query);
-        const records = await data.map((it) => it.fields);
-        const experience = records.map(async (it) => {
+        const records = await data.map(
+            (it: AirTableResponseRecord<ExperienceResponseData>) => it.fields
+        );
+        const experience = records.map(async (it: ExperienceResponseData) => {
             const experienceDetails = await this.getLinkedDetails(it.company);
             const location = await this.getLinkedLocation(it.company);
             return {
                 company: it.displayName ? it.displayName : it.company,
                 title: it.title,
+                location,
                 startDate: moment(it.startDate).toObject(),
                 endDate: moment(it.endDate).toObject(),
-                location,
                 details: experienceDetails,
                 logo: it.logo ? it.logo[0].url : ''
             };
@@ -24,7 +33,9 @@ class ExperienceService {
         return Promise.all(experience);
     }
 
-    async getLinkedDetails(company) {
+    private async getLinkedDetails(
+        company: string
+    ): Promise<Array<ExperienceDetail>> {
         const filterByFormula = '{experience}=' + `"${company}"`;
         const query = {
             view: 'visibleSort',
@@ -32,10 +43,13 @@ class ExperienceService {
             ...buildFieldsQuery('text')
         };
         const data = await getAll(apiConfig.experienceDetailPath, [], query);
-        return data.map((it) => it.fields.text);
+        return data.map(
+            (it: AirTableResponseRecord<ExperienceDetailResponseData>) =>
+                it.fields.text
+        );
     }
 
-    async getLinkedLocation(company) {
+    private async getLinkedLocation(company: string): Promise<Location> {
         const filterByFormula = '{name}=' + `"${company}"`;
         const query = {
             filterByFormula,
