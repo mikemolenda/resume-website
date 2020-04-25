@@ -1,4 +1,4 @@
-import { experienceService } from './experience.fs.service';
+import { experienceService } from './experience.api.service';
 
 describe('Experience Service integration tests', () => {
     const service = experienceService;

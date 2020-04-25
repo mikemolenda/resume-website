@@ -12,6 +12,10 @@
     "author": "Mike Molenda",
     "license": "ISC",
     "dependencies": {
+        "@firebase/app": "^0.6.2",
+        "@firebase/firestore": "^1.14.2",
+        "firebase": "^7.14.2",
+        "firebase-admin": "^8.11.0",
         "googleapis": "^49.0.0",
         "isomorphic-unfetch": "^3.0.0",
         "moment": "^2.24.0",
