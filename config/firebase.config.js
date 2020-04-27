@@ -1,15 +1,21 @@
-import admin from 'firebase-admin';
+import firebase from '@firebase/app';
 import '@firebase/firestore';
-import * as serviceAccount from '../keys/firestore-user.json';
+import '@firebase/auth';
+import * as firebaseConfig from '../keys/firebase-user.json';
 
-export const loadDB = () => {
-    try {
-        admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount)
-        });
-        return admin.firestore();
-    } catch (err) {
-        console.log('INIT FAILED');
-        console.error('Failed to initialize Firebase', err.stack);
+try {
+    firebase.initializeApp({
+        apiKey: firebaseConfig.apiKey,
+        authDomain: firebaseConfig.authDomain,
+        projectId: firebaseConfig.projectId
+    });
+} catch (err) {
+    if (!/already exists/.test(err.message)) {
+        console.error('Firebase initialization error', err.stack);
     }
-};
+}
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
+export { firebase, auth, firestore };

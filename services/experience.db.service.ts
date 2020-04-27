@@ -1,18 +1,12 @@
-import admin, { ServiceAccount } from 'firebase-admin';
 import { logObject } from '../utils/debug.util';
-import * as serviceAccount from '../keys/firestore-user.json';
+import { firebase, auth, firestore } from '../config/firebase.config';
 
 class ExperienceService {
     public async get() {
-        const app = admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount as ServiceAccount)
-        });
+        const data = await firestore.collection('test').get();
+        const docs = data.docs.map((doc) => doc.data());
 
-        const db = app.firestore();
-
-        const experience = await db.collection('experience').get();
-
-        console.log(experience);
+        logObject(docs, { depth: 4, colorize: true });
     }
 }
 
